@@ -2,13 +2,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBEfjUJHn9-R4-ioRMtc8WRiXnrstXB-Co",
+  authDomain: "fits-me-online.firebaseapp.com",
+  projectId: "fits-me-online",
+  storageBucket: "fits-me-online.firebasestorage.app",
+  messagingSenderId: "848597996215",
+  appId: "1:848597996215:web:3218fc31b864fcde2df332"
 };
 
 const app = initializeApp(firebaseConfig);
