@@ -69,6 +69,25 @@ body {
     color: var(--primary-color);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-link-btn {
+    background-color: #2b2d42;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 650;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .instagram-btn {
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     color: var(--white);
@@ -200,8 +219,9 @@ body {
     text-align: center;
 }
 
-.about-container max-width {
+.about-container {
     max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-container h2 {
@@ -245,6 +265,12 @@ body {
     gap: 10px;
 }
 
+.whatsapp-footer-link {
+    color: #25d366;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 .insta-link {
     color: var(--accent-color);
     text-decoration: none;
@@ -261,7 +287,7 @@ body {
     font-size: 14px;
 }
 
-/* Chat Widget Styling */
+/* Chat Widget */
 .chat-widget {
     position: fixed;
     bottom: 25px;
@@ -309,8 +335,8 @@ body {
     position: absolute;
     bottom: 75px;
     right: 0;
-    width: 340px;
-    height: 450px;
+    width: 350px;
+    height: 480px;
     background: var(--white);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -329,7 +355,7 @@ body {
 .chat-header {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 15px;
+    padding: 12px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -341,15 +367,21 @@ body {
     gap: 10px;
 }
 
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #2ed573;
+.admin-avatar {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
 }
 
-.chat-header h4 {
-    font-size: 16px;
+.chat-title-wrapper h4 {
+    font-size: 15px;
+}
+
+.status-text {
+    font-size: 11px;
+    color: #e0aaff;
 }
 
 .close-chat {
@@ -417,10 +449,6 @@ body {
     font-size: 14px;
 }
 
-.chat-footer input:focus {
-    border-color: var(--primary-color);
-}
-
 .chat-footer button {
     background-color: var(--primary-color);
     color: var(--white);
@@ -432,9 +460,166 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Admin Dashboard CSS */
+.admin-body {
+    background-color: #f4f5f7;
+}
+
+.admin-container {
+    display: flex;
+    height: 100vh;
+}
+
+.admin-sidebar {
+    width: 260px;
+    background-color: #1a1a24;
+    color: white;
+    padding: 20px;
+}
+
+.admin-sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.admin-sidebar h2 span {
+    color: var(--primary-color);
+}
+
+.admin-sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-sidebar ul li a {
+    color: #bbb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
     transition: 0.2s;
 }
 
-.chat-footer button:hover {
-    background-color: var(--secondary-color);
+.admin-sidebar ul li.active a, .admin-sidebar ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    height: 70px;
+    background: white;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.admin-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.chats-list-panel {
+    width: 320px;
+    background: white;
+    border-right: 1px solid #eee;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.chats-list-panel h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.chat-user-item {
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.chat-user-item:hover, .chat-user-item.active {
+    background: #ede7f6;
+    border-left: 4px solid var(--primary-color);
+}
+
+.chat-reply-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fdfdfd;
+}
+
+.selected-chat-header {
+    padding: 15px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+}
+
+.admin-messages-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-reply-footer {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.admin-reply-footer input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.admin-reply-footer button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
 }

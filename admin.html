@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fits_Me | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <h2>Fits_<span>Me</span> Admin</h2>
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-comments"></i> Customer Chats</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Back to Website</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h3>Live Customer Messages</h3>
+                <div class="admin-profile">
+                    <img src="assets/Fits_Me.jpeg" alt="Admin">
+                    <span>Admin (fitsme.uae@gmail.com)</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <div class="chats-list-panel" id="chatsListPanel">
+                    <h4>Conversations</h4>
+                    <div id="usersChatList">
+                        <!-- Dynamic user sessions will appear here -->
+                    </div>
+                </div>
+
+                <div class="chat-reply-panel" id="chatReplyPanel">
+                    <div class="selected-chat-header" id="selectedChatHeader">
+                        <span>Select a chat to start replying</span>
+                    </div>
+                    <div class="admin-messages-body" id="adminMessagesBody">
+                        <!-- Messages loaded here -->
+                    </div>
+                    <div class="admin-reply-footer" id="adminReplyFooter" style="display: none;">
+                        <input type="text" id="adminReplyInput" placeholder="Type a reply as admin...">
+                        <button id="adminSendBtn"><i class="fas fa-paper-plane"></i> Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
