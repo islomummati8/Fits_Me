@@ -623,3 +623,49 @@ body {
     cursor: pointer;
     font-weight: 600;
 }
+.google-login-btn {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+.google-login-btn:hover { background-color: #f1f1f1; }
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.user-profile-header img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff4757;
+    font-size: 16px;
+}
+.access-denied-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f5f7;
+    text-align: center;
+}
+.denied-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}

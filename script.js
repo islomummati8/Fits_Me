@@ -1,5 +1,6 @@
-import { db } from "./firebase-config.js";
+import { db, auth } from "./firebase-config.js";
 import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 const chatToggle = document.getElementById('chatToggle');
 const chatBox = document.getElementById('chatBox');
@@ -8,24 +9,67 @@ const chatBody = document.getElementById('chatBody');
 const chatInput = document.getElementById('chatInput');
 const sendBtn = document.getElementById('sendBtn');
 
-// Unique User ID generate qilish (har bir mijoz uchun alohida chat sessiyasi)
+const googleLoginBtn = document.getElementById('googleLoginBtn');
+const googleLogoutBtn = document.getElementById('googleLogoutBtn');
+const userProfileArea = document.getElementById('userProfileArea');
+const headerUserAvatar = document.getElementById('headerUserAvatar');
+const adminPanelBtn = document.getElementById('adminPanelBtn');
+
+const ADMIN_EMAILS = ["islomummati8@gmail.com"]; // Admin emaillari ro'yxati
+
+// Google Auth 
+const provider = new GoogleAuthProvider();
+
+googleLoginBtn.addEventListener('click', async () => {
+    try {
+        await signInWithPopup(auth, provider);
+    } catch (error) {
+        console.error("Login error:", error);
+    }
+});
+
+googleLogoutBtn.addEventListener('click', async () => {
+    try {
+        await signOut(auth);
+    } catch (error) {
+        console.error("Logout error:", error);
+    }
+});
+
+// Autentifikatsiya holatini kuzatish
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        googleLoginBtn.style.display = 'none';
+        userProfileArea.style.display = 'flex';
+        headerUserAvatar.src = user.photoURL || 'assets/Fits_Me.jpeg';
+
+        // Faqat admin emaillariga Admin Panel tugmasini ko'rsatish
+        if (ADMIN_EMAILS.includes(user.email)) {
+            adminPanelBtn.style.display = 'flex';
+        }
+    } else {
+        googleLoginBtn.style.display = 'flex';
+        userProfileArea.style.display = 'none';
+        adminPanelBtn.style.display = 'none';
+    }
+});
+
+// User ID
 let userId = localStorage.getItem('fits_me_user_id');
 if (!userId) {
-    userId = 'user_' + Math.random().toString(36.substring(2, 9));
+    userId = 'user_' + Math.random().toString(36).substring(2, 9);
     localStorage.setItem('fits_me_user_id', userId);
 }
 
 chatToggle.addEventListener('click', () => chatBox.classList.toggle('active'));
 closeChat.addEventListener('click', () => chatBox.classList.remove('active'));
 
-// Firestore dan real-time xabarlarni o'qish
+// Real-time chat
 const messagesRef = collection(db, `chats/${userId}/messages`);
 const q = query(messagesRef, orderBy('createdAt', 'asc'));
 
 onSnapshot(q, (snapshot) => {
-    // Agar xabarlar bo'lmasa dastlabki xabarni qoldiramiz
     if(snapshot.empty) return;
-    
     chatBody.innerHTML = '';
     snapshot.forEach((doc) => {
         let msg = doc.data();
@@ -41,7 +85,6 @@ onSnapshot(q, (snapshot) => {
     chatBody.scrollTop = chatBody.scrollHeight;
 });
 
-// Xabar yuborish
 async function sendUserMessage() {
     let text = chatInput.value.trim();
     if(text === '') return;

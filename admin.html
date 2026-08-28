@@ -10,7 +10,7 @@
 </head>
 <body class="admin-body">
 
-    <div class="admin-container">
+    <div class="admin-container" id="adminMainContainer" style="display: none;">
         <aside class="admin-sidebar">
             <h2>Fits_<span>Me</span> Admin</h2>
             <ul>
@@ -24,25 +24,21 @@
                 <h3>Live Customer Messages</h3>
                 <div class="admin-profile">
                     <img src="assets/Fits_Me.jpeg" alt="Admin">
-                    <span>Admin (fitsme.uae@gmail.com)</span>
+                    <span id="adminEmailDisplay">islomummati8@gmail.com</span>
                 </div>
             </header>
 
             <div class="admin-content">
                 <div class="chats-list-panel" id="chatsListPanel">
                     <h4>Conversations</h4>
-                    <div id="usersChatList">
-                        <!-- Dynamic user sessions will appear here -->
-                    </div>
+                    <div id="usersChatList"></div>
                 </div>
 
                 <div class="chat-reply-panel" id="chatReplyPanel">
                     <div class="selected-chat-header" id="selectedChatHeader">
                         <span>Select a chat to start replying</span>
                     </div>
-                    <div class="admin-messages-body" id="adminMessagesBody">
-                        <!-- Messages loaded here -->
-                    </div>
+                    <div class="admin-messages-body" id="adminMessagesBody"></div>
                     <div class="admin-reply-footer" id="adminReplyFooter" style="display: none;">
                         <input type="text" id="adminReplyInput" placeholder="Type a reply as admin...">
                         <button id="adminSendBtn"><i class="fas fa-paper-plane"></i> Send</button>
@@ -50,6 +46,16 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Agar admin bo'lmasa ko'rsatiladigan qism -->
+    <div id="accessDenied" class="access-denied-screen">
+        <div class="denied-box">
+            <i class="fas fa-shield-alt" style="font-size: 50px; color: #ff4757; margin-bottom: 15px;"></i>
+            <h2>Access Denied</h2>
+            <p>You must log in with the administrator account (islomummati8@gmail.com) to access this page.</p>
+            <a href="index.html" class="btn primary-btn" style="margin-top: 20px; display: inline-block;">Return to Home</a>
+        </div>
     </div>
 
     <script type="module" src="firebase-config.js"></script>
