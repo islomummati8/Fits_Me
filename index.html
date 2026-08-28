@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fits_Me | Premium Pijamalar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Fits_<span>Me</span></a>
+            <nav class="nav-links">
+                <a href="#home">Bosh sahifa</a>
+                <a href="#catalog">Pijamalar</a>
+                <a href="#about">Biz haqimizda</a>
+                <a href="#contact">Aloqa</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://www.instagram.com/reel/DEsECA1yahl/?igsi=MW1lamhiZXdiYnRrbw==" target="_blank" class="instagram-btn">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Sizga eng mos keluvchi qulaylik — <span>Fits_Me</span></h1>
+            <p>Uyqu va dam olishingiz uchun eng yumshoq, sifatli va premium pijamalar to'plami.</p>
+            <a href="#catalog" class="btn primary-btn">Katalogga o'tish</a>
+        </div>
+    </section>
+
+    <section id="catalog" class="container section">
+        <h2 class="section-title">Bizning Pijamalar</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="product-info">
+                    <h3>Silk Royal Pijama</h3>
+                    <p class="price">$35</p>
+                    <button class="btn secondary-btn" onclick="openChatWithProduct('Silk Royal Pijama')">Buyurtma berish</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="product-info">
+                    <h3>Cotton Comfort Pijama</h3>
+                    <p class="price">$28</p>
+                    <button class="btn secondary-btn" onclick="openChatWithProduct('Cotton Comfort Pijama')">Buyurtma berish</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="product-info">
+                    <h3>Velor Soft Pijama</h3>
+                    <p class="price">$40</p>
+                    <button class="btn secondary-btn" onclick="openChatWithProduct('Velor Soft Pijama')">Buyurtma berish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <h2>Fits_Me Haqida</h2>
+            <p>Bizning <strong>Fits_Me</strong> brendimiz har bir mijozga o'zini mukammal va qulay his qilishi uchun eng yuqori sifatli matolardan tayyorlangan pijamalarni taklif etadi. Tunlaringiz osoyishta va fayzli o'tsin!</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Fits_<span>Me</span></h3>
+                <p>Sizning eng sevimli uy kiyimingiz.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Bog'lanish</h4>
+                <p><i class="fas fa-envelope"></i> fitsme.uae@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +20 102 740 9607</p>
+            </div>
+            <div class="footer-col">
+                <h4>Ijtimoiy tarmoq</h4>
+                <a href="https://www.instagram.com/reel/DEsECA1yahl/?igsi=MW1lamhiZXdiYnRrbw==" target="_blank" class="insta-link">
+                    <i class="fab fa-instagram"></i> Instagram Reels
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fits_Me. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <div class="chat-widget">
+        <div class="chat-toggle-btn" id="chatToggle">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-badge">1</span>
+        </div>
+
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div class="chat-title-wrapper">
+                    <span class="status-dot"></span>
+                    <h4>Fits_Me Qo'llab-quvvatlash</h4>
+                </div>
+                <button class="close-chat" id="closeChat"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="message admin-msg">
+                    <p>Assalomu alaykum! Xabaringizni qoldiring, tez orada javob beramiz. 😊</p>
+                    <span class="msg-time">Hozir</span>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Xabar yozing...">
+                <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
