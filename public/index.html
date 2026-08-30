@@ -20,25 +20,28 @@
                 <a href="#about">About Us</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="nav-actions">
-                <!-- Faqat admin kirganda ko'rinadigan tugma -->
-                <a href="admin.html" class="admin-link-btn" id="adminPanelBtn" style="display: none;">
-                    <i class="fas fa-lock"></i> Admin Panel
-                </a>
-                <!-- Google orqali kirish/chiqish tugmasi -->
-                <button id="googleLoginBtn" class="google-login-btn">
-                    <i class="fab fa-google"></i> Sign In
-                </button>
-                <div id="userProfileArea" style="display: none;" class="user-profile-header">
-                    <img id="headerUserAvatar" src="" alt="User">
-                    <button id="googleLogoutBtn" class="logout-btn" title="Sign Out"><i class="fas fa-sign-out-alt"></i></button>
-                </div>
-                <a href="https://www.instagram.com/reel/DEsECA1yahl/?igsi=MW1lamhiZXdiYnRrbw==" target="_blank" class="instagram-btn">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
+           <div class="nav-actions">
+    <!-- Faqat admin kirganda ko'rinadigan tugma -->
+    <a href="admin.html" class="admin-link-btn" id="adminPanelBtn" style="display: none;">
+        <i class="fas fa-lock"></i> Admin Panel
+    </a>
+    
+    <!-- Google orqali kirish/chiqish tugmasi -->
+    <button id="googleLoginBtn" class="google-login-btn">
+        <i class="fab fa-google"></i> Sign In
+    </button>
+    <div id="userProfileArea" style="display: none;" class="user-profile-header">
+        <img id="headerUserAvatar" src="" alt="User">
+        <button id="googleLogoutBtn" class="logout-btn" title="Sign Out"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+
+    <a href="https://www.instagram.com/reel/DEsECA1yahl/?igsi=MW1lamhiZXdiYnRrbw==" target="_blank" class="instagram-btn">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
         </div>
     </header>
+   
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -51,34 +54,45 @@
 
     <!-- Catalog Section -->
     <section id="catalog" class="container section">
-        <h2 class="section-title">Our Premium Pajamas</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-tshirt"></i></div>
-                <div class="product-info">
-                    <h3>Silk Royal Pijama</h3>
-                    <p class="price">$35</p>
-                    <button class="btn secondary-btn" onclick="openChatWithProduct('Silk Royal Pijama')">Order Now</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-tshirt"></i></div>
-                <div class="product-info">
-                    <h3>Cotton Comfort Pijama</h3>
-                    <p class="price">$28</p>
-                    <button class="btn secondary-btn" onclick="openChatWithProduct('Cotton Comfort Pijama')">Order Now</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-tshirt"></i></div>
-                <div class="product-info">
-                    <h3>Velor Soft Pijama</h3>
-                    <p class="price">$40</p>
-                    <button class="btn secondary-btn" onclick="openChatWithProduct('Velor Soft Pijama')">Order Now</button>
-                </div>
+        <div class="section-header">
+            <h2 class="section-title">Our Premium Pajamas</h2>
+            <button id="adminEditModeBtn" class="admin-edit-btn" style="display: none;">
+                <i class="fas fa-edit"></i> Edit Mode
+            </button>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded dynamically -->
+            <div class="loading-spinner">
+                <i class="fas fa-spinner"></i> Loading products...
             </div>
         </div>
     </section>
+
+    <!-- Edit Product Modal -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Product</h3>
+                <button class="modal-close" onclick="closeEditModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="edit-product-form">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <input type="text" id="editProductName" placeholder="Enter product name">
+                    </div>
+                    <div class="form-group">
+                        <label>Price ($)</label>
+                        <input type="number" id="editProductPrice" placeholder="Enter price" min="0" step="0.01">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn primary-btn" onclick="saveProductEdit()">Save</button>
+                        <button class="btn secondary-btn" onclick="closeEditModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about-section">

@@ -6,6 +6,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 const firebaseConfig = {
   apiKey: "AIzaSyBEfjUJHn9-R4-ioRMtc8WRiXnrstXB-Co",
   authDomain: "fits-me-online.firebaseapp.com",
+  databaseURL: "https://fits-me-online-default-rtdb.europe-west1.firebasedatabase.app/",
   projectId: "fits-me-online",
   storageBucket: "fits-me-online.firebasestorage.app",
   messagingSenderId: "848597996215",
